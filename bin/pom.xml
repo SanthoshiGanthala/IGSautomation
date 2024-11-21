@@ -1,0 +1,220 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>Automation</groupId>
+  <artifactId>Framework</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+               
+                <configuration>
+                    <source>7</source>
+                    <target>7</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <packaging>jar</packaging>
+
+  <name>Framework</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+  	<!-- https://mvnrepository.com/artifact/info.cukes/cucumber-java -->
+		<dependency>
+		    <groupId>info.cukes</groupId>
+		    <artifactId>cucumber-java</artifactId>
+		    <version>1.2.5</version>
+		</dependency>
+
+  	<!-- https://mvnrepository.com/artifact/info.cukes/cucumber-junit -->
+	<dependency>
+	    <groupId>info.cukes</groupId>
+	    <artifactId>cucumber-junit</artifactId>
+	    <version>1.2.5</version>
+	</dependency>
+  	
+  	<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+	<dependency>
+	    <groupId>org.seleniumhq.selenium</groupId>
+	    <artifactId>selenium-java</artifactId>
+	    <version>3.141.59</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+	<dependency>
+	    <groupId>io.github.bonigarcia</groupId>
+	    <artifactId>webdrivermanager</artifactId>
+	    <version>5.5.3</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+	<dependency>
+	    <groupId>org.apache.poi</groupId>
+	    <artifactId>poi</artifactId>
+	    <version>4.1.2</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+	<dependency>
+	    <groupId>org.apache.poi</groupId>
+	    <artifactId>poi-ooxml</artifactId>
+	    <version>4.1.2</version>
+	</dependency>
+	
+  	<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+	<dependency>
+	    <groupId>org.testng</groupId>
+	    <artifactId>testng</artifactId>
+	    <version>7.1.0</version>
+	</dependency>
+  	
+	<!-- https://mvnrepository.com/artifact/info.cukes/cucumber-testng -->
+	<dependency>
+	    <groupId>info.cukes</groupId>
+	    <artifactId>cucumber-testng</artifactId>
+	    <version>1.2.5</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+	<dependency>
+	    <groupId>com.aventstack</groupId>
+	    <artifactId>extentreports</artifactId>
+	    <version>3.1.5</version>
+	</dependency>
+
+
+	<!-- https://mvnrepository.com/artifact/com.vimalselvam/cucumber-extentsreport -->
+	<dependency>
+	    <groupId>com.vimalselvam</groupId>
+	    <artifactId>cucumber-extentsreport</artifactId>
+	    <version>3.1.1</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+	<dependency>
+	    <groupId>commons-io</groupId>
+	    <artifactId>commons-io</artifactId>
+	    <version>2.6</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
+	<dependency>
+	    <groupId>io.rest-assured</groupId>
+	    <artifactId>rest-assured</artifactId>
+	    <version>4.3.0</version>
+	    <scope>test</scope>
+	</dependency>
+	
+	
+	<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+	<dependency>
+	    <groupId>org.postgresql</groupId>
+	    <artifactId>postgresql</artifactId>
+	    <version>42.2.12</version>
+	</dependency>
+	
+		
+	<!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
+	<dependency>
+	    <groupId>com.microsoft.sqlserver</groupId>
+	    <artifactId>mssql-jdbc</artifactId>
+	    <version>8.2.0.jre8</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+	<dependency>
+	    <groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+	    <version>8.0.19</version>
+	</dependency>
+	
+	 <dependency>
+        <groupId>cggOracle</groupId>
+        <artifactId>ojdbc8</artifactId>
+        <version>19.3.0.0</version>
+        <scope>system</scope>
+        <systemPath>${basedir}\lib\ojdbc8-19.3.0.0.jar</systemPath>
+    </dependency>
+    
+    <dependency>
+        <groupId>cggOracle</groupId>
+        <artifactId>ons</artifactId>
+        <version>19.3.0.0</version>
+        <scope>system</scope>
+        <systemPath>${basedir}/lib/ons-19.3.0.0.jar</systemPath>
+    </dependency>
+    
+    <dependency>
+        <groupId>cggOracle</groupId>
+        <artifactId>oraclepki</artifactId>
+        <version>19.3.0.0</version>
+        <scope>system</scope>
+        <systemPath>${basedir}/lib/oraclepki-19.3.0.0.jar</systemPath>
+    </dependency>
+    
+    <dependency>
+        <groupId>cggOracle</groupId>
+        <artifactId>osdt_cert</artifactId>
+        <version>19.3.0.0</version>
+        <scope>system</scope>
+        <systemPath>${basedir}/lib/osdt_cert-19.3.0.0.jar</systemPath>
+    </dependency>
+    
+    <dependency>
+        <groupId>cggOracle</groupId>
+        <artifactId>simplefan</artifactId>
+        <version>19.3.0.0</version>
+        <scope>system</scope>
+        <systemPath>${basedir}/lib/simplefan-19.3.0.0.jar</systemPath>
+    </dependency>
+    
+    <dependency>
+        <groupId>cggOracle</groupId>
+        <artifactId>ucp</artifactId>
+        <version>19.3.0.0</version>
+        <scope>system</scope>
+        <systemPath>${basedir}/lib/ucp-19.3.0.0.jar</systemPath>
+    </dependency>
+	
+	 <dependency>
+        <groupId>cggOracle</groupId>
+        <artifactId>osdt_core</artifactId>
+        <version>19.3.0.0</version>
+        <scope>system</scope>
+        <systemPath>${basedir}/lib/osdt_core-19.3.0.0.jar</systemPath>
+    </dependency>
+    
+    <!-- https://mvnrepository.com/artifact/io.appium/java-client -->
+	<dependency>
+	    <groupId>io.appium</groupId>
+	    <artifactId>java-client</artifactId>
+	    <version>7.3.0</version>
+	</dependency>
+    
+    <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-android-driver -->
+	<dependency>
+	    <groupId>org.seleniumhq.selenium</groupId>
+	    <artifactId>selenium-android-driver</artifactId>
+	    <version>2.39.0</version>
+	</dependency>
+      <dependency>
+          <groupId>io.rest-assured</groupId>
+          <artifactId>rest-assured</artifactId>
+          <version>4.3.0</version>
+          <scope>compile</scope>
+      </dependency>
+
+
+  </dependencies>
+ 
+  
+</project>

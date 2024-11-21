@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>TestNG Report</title>
+<style type="text/css">table {margin-bottom:10px;border-collapse:collapse;empty-cells:show}th,td {border:1px solid #009;padding:.25em .5em}th {vertical-align:bottom}td {vertical-align:top}table a {font-weight:bold}.stripe td {background-color: #E6EBF9}.num {text-align:right}.passedodd td {background-color: #3F3}.passedeven td {background-color: #0A0}.skippedodd td {background-color: #DDD}.skippedeven td {background-color: #CCC}.failedodd td,.attn {background-color: #F33}.failedeven td,.stripe .attn {background-color: #D00}.stacktrace {white-space:pre;font-family:monospace}.totop {font-size:85%;text-align:center;border-bottom:2px solid #000}.invisible {display:none}</style>
+</head>
+<body>
+<table>
+<tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
+<tr><th colspan="8">Command line suite</th></tr>
+<tr><td><a href="#t0">Command line test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">5,162</td><td></td><td></td></tr>
+</table>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Command line suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Command line test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">runners.RunCukes</td><td><a href="#m0">feature</a></td><td rowspan="1">1715857154675</td><td rowspan="1">4683</td></tr></tbody>
+</table>
+<h2>Command line test</h2><h3 id="m0">runners.RunCukes#feature</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>Test login functionality</td></tr><tr><th>Messages</th></tr><tr><td><div class="messages">org.openqa.selenium.SessionNotCreatedException: session not created: This version of ChromeDriver only supports Chrome version 114
+Current browser version is 124.0.6367.203 with binary path C:\Program Files\Google\Chrome\Application\chrome.exe
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'GB-TEST-0004', ip: '10.2.36.22', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_144'
+Driver info: driver.version: ChromeDriver
+remote stacktrace: Backtrace:
+	GetHandleVerifier [0x00FEA813+48355]
+	(No symbol) [0x00F7C4B1]
+	(No symbol) [0x00E85358]
+	(No symbol) [0x00EA61AC]
+	(No symbol) [0x00EA1EF3]
+	(No symbol) [0x00EA0579]
+	(No symbol) [0x00ED0C55]
+	(No symbol) [0x00ED093C]
+	(No symbol) [0x00ECA536]
+	(No symbol) [0x00EA82DC]
+	(No symbol) [0x00EA93DD]
+	GetHandleVerifier [0x0124AABD+2539405]
+	GetHandleVerifier [0x0128A78F+2800735]
+	GetHandleVerifier [0x0128456C+2775612]
+	GetHandleVerifier [0x010751E0+616112]
+	(No symbol) [0x00F85F8C]
+	(No symbol) [0x00F82328]
+	(No symbol) [0x00F8240B]
+	(No symbol) [0x00F74FF7]
+	BaseThreadInitThunk [0x757500C9+25]
+	RtlGetAppContainerNamedObjectPath [0x775D7B4E+286]
+	RtlGetAppContainerNamedObjectPath [0x775D7B1E+238]
+</div></td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">cucumber.runtime.CucumberException: java.lang.AssertionError: error navigating to url
+	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
+	at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
+	at java.util.ArrayList.forEach(ArrayList.java:1249)
+	at runners.TestRunner.main(TestRunner.java:24)
+Caused by: java.lang.AssertionError: error navigating to url
+	at commonMethods.PageReusable.navigate(PageReusable.java:415)
+	at stepDefinitions.loginIGRS.i_launch_application(loginIGRS.java:21)
+	at ✽.Given launch the igrs application in browser(C:/Users/santhoshi.g/Desktop/IGRS-Cucumber/src/main/java/features/login.feature:3)
+... Removed 25 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+</body>
+</html>

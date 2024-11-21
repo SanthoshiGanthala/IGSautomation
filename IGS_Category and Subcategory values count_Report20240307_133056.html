@@ -1,0 +1,792 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset='utf-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css' />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/b4a58fcfd1e137bd9287244035a7c80d3d73b3af/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>ExtentReports</title>
+
+	<style type='text/css'>
+	</style>
+</head>
+
+	<body class='extent standard default hide-overflow '>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>ExtentReports</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<li>
+                <a href='#!'>
+                    <span class='label suite-start-time blue darken-3'>Mar 7, 2024 01:30:56 PM</span>
+				</a>
+			</li>
+			<li>
+                <a href='#!'>
+                    <span class='label blue darken-3'>3.1.5</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Tests</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> test(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>100</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Tests</h5>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='5'>
+					<div class='test-heading'>
+						<span class='test-name'>TEST CASE - Category and Subcategory values</span>
+						<span class='test-time'>Mar 7, 2024 01:31:04 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 7, 2024 01:31:04 PM</span>
+	<span class='label end-time'>Mar 7, 2024 02:36:36 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>1h 5m 32s+108ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:32:43 PM</td>
+					<td class='step-details'>Total count of category Administration (above Class IV Employees issues) : 2 is matched with subcategory total count 2</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:33:07 PM</td>
+					<td class='step-details'>Total count of category Labour Welfare (Compassionate Appointment, all issues of Class IV Employees & Outsourcing Employees) : 1 is matched with subcategory total count 1</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:33:30 PM</td>
+					<td class='step-details'>Total count of category Disciplinary Cases by GHMC : 1 is matched with subcategory total count 1</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:34:52 PM</td>
+					<td class='step-details'>Total count of category Unsafe Hoardings : 1 is matched with subcategory total count 1</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:35:15 PM</td>
+					<td class='step-details'>Total count of category Unauthorized Hoardings : 3 is matched with subcategory total count 3</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:36:48 PM</td>
+					<td class='step-details'>Total count of category Tree fall / Electric pole fall : 1 is matched with subcategory total count 1</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:38:11 PM</td>
+					<td class='step-details'>Total count of category Animal/Bird Rescue : 1 is matched with subcategory total count 1</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:38:34 PM</td>
+					<td class='step-details'>Total count of category Water Stagnation : 8 is matched with subcategory total count 8</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:38:56 PM</td>
+					<td class='step-details'>Total count of category Human Rescue : 1 is matched with subcategory total count 1</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:39:18 PM</td>
+					<td class='step-details'>Total count of category Building Collapse Rescue : 2 is matched with subcategory total count 2</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:40:36 PM</td>
+					<td class='step-details'>Total count of category Form - 6 (Inclusion in electoral roll) : 4 is matched with subcategory total count 4</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:40:59 PM</td>
+					<td class='step-details'>Total count of category Form - 8A (Transposition of entry in electoral roll) : 1 is matched with subcategory total count 1</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:41:23 PM</td>
+					<td class='step-details'>Total count of category Form - 8 (Correction to particulars entered in electoral roll) : 2 is matched with subcategory total count 2</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:43:55 PM</td>
+					<td class='step-details'>Total count of category Non Glowing of Street Lights : 912 is matched with subcategory total count 912</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:44:18 PM</td>
+					<td class='step-details'>Total count of category New Street Light Requirement : 51 is matched with subcategory total count 51</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:44:40 PM</td>
+					<td class='step-details'>Total count of category Street Lights Glowing Continuously : 27 is matched with subcategory total count 27</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:45:03 PM</td>
+					<td class='step-details'>Total count of category Timer Settings of Street Lights : 39 is matched with subcategory total count 39</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:46:42 PM</td>
+					<td class='step-details'>Total count of category Water logging : 18 is matched with subcategory total count 18</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:47:05 PM</td>
+					<td class='step-details'>Total count of category Fencing of Nala / Drain : 3 is matched with subcategory total count 3</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:47:27 PM</td>
+					<td class='step-details'>Total count of category Improvements in Burial Grounds : 1 is matched with subcategory total count 1</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:47:50 PM</td>
+					<td class='step-details'>Total count of category Repairs to Foot Path : 13 is matched with subcategory total count 13</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:48:13 PM</td>
+					<td class='step-details'>Total count of category Overflowing of Nala / Drain : 155 is matched with subcategory total count 155</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:48:36 PM</td>
+					<td class='step-details'>Total count of category Desilting of Nala / Drain : 44 is matched with subcategory total count 44</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:48:59 PM</td>
+					<td class='step-details'>Total count of category Illegal Road Cutting : 7 is matched with subcategory total count 7</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:49:22 PM</td>
+					<td class='step-details'>Total count of category Repairs to Road (Pot holes) : 99 is matched with subcategory total count 99</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:49:44 PM</td>
+					<td class='step-details'>Total count of category Repairs of Nala / Drain : 58 is matched with subcategory total count 58</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:50:08 PM</td>
+					<td class='step-details'>Total count of category No Water Supply in Public Toilet(s) : 1 is matched with subcategory total count 1</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:50:31 PM</td>
+					<td class='step-details'>Total count of category Pending Bill Payments : 1 is matched with subcategory total count 1</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:52:02 PM</td>
+					<td class='step-details'>Total count of category Reporting of Malaria/Dengue/Other Fevers at Locality : 5 is matched with subcategory total count 5</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:52:25 PM</td>
+					<td class='step-details'>Total count of category Spraying in Home /Locality : 19 is matched with subcategory total count 19</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:52:48 PM</td>
+					<td class='step-details'>Total count of category Mosquitoes Fogging Required : 163 is matched with subcategory total count 163</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:53:10 PM</td>
+					<td class='step-details'>Total count of category Mosquito Menace in the Locality : 22 is matched with subcategory total count 22</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:54:43 PM</td>
+					<td class='step-details'>Total count of category Maintenance in Market /Shopping Complex : 1 is matched with subcategory total count 1</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:56:01 PM</td>
+					<td class='step-details'>Total count of category Unauthorized Building without Fire NOC : 1 is matched with subcategory total count 1</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:56:24 PM</td>
+					<td class='step-details'>Total count of category Unauthorized Shop without Fire NOC : 1 is matched with subcategory total count 1</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:57:49 PM</td>
+					<td class='step-details'>Total count of category Selling of Contaminated Food : 3 is matched with subcategory total count 3</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:58:12 PM</td>
+					<td class='step-details'>Total count of category Unhygienic food quality in Hotel : 21 is matched with subcategory total count 21</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:58:34 PM</td>
+					<td class='step-details'>Total count of category Issues in Birth and Death Certificates : 5 is matched with subcategory total count 5</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>1:59:52 PM</td>
+					<td class='step-details'>Total count of category GIS Related : 1 is matched with subcategory total count 1</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:00:14 PM</td>
+					<td class='step-details'>Total count of category Network Related : 2 is matched with subcategory total count 2</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:00:36 PM</td>
+					<td class='step-details'>Total count of category Software Related : 2 is matched with subcategory total count 2</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:00:59 PM</td>
+					<td class='step-details'>Total count of category Website Related : 2 is matched with subcategory total count 2</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:02:16 PM</td>
+					<td class='step-details'>Total count of category Issues of lakes : 9 is matched with subcategory total count 9</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:03:51 PM</td>
+					<td class='step-details'>Total count of category Payment of Compensation : 1 is matched with subcategory total count 1</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:05:12 PM</td>
+					<td class='step-details'>Total count of category Excess Collection of Parking Fee : 1 is matched with subcategory total count 1</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:05:35 PM</td>
+					<td class='step-details'>Total count of category Unauthorized Collection of Parking Fee : 9 is matched with subcategory total count 9</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:06:52 PM</td>
+					<td class='step-details'>Total count of category RTI : 2 is matched with subcategory total count 2</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:08:17 PM</td>
+					<td class='step-details'>Total count of category Correction of Door Number / Address : 6 is matched with subcategory total count 6</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:08:40 PM</td>
+					<td class='step-details'>Total count of category GIS Mobile Verfication : 4 is matched with subcategory total count 4</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:09:03 PM</td>
+					<td class='step-details'>Total count of category Correction of Property Tax : 30 is matched with subcategory total count 30</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:09:25 PM</td>
+					<td class='step-details'>Total count of category New Assessment of Property Tax : 14 is matched with subcategory total count 14</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:09:48 PM</td>
+					<td class='step-details'>Total count of category Payment not Updated : 30 is matched with subcategory total count 30</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:10:10 PM</td>
+					<td class='step-details'>Total count of category Vacancy Remission / Exemption : 1 is matched with subcategory total count 1</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:10:33 PM</td>
+					<td class='step-details'>Total count of category Change of Name / Mutations : 5 is matched with subcategory total count 5</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:10:56 PM</td>
+					<td class='step-details'>Total count of category Mutation of property : 3 is matched with subcategory total count 3</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:11:18 PM</td>
+					<td class='step-details'>Total count of category Interest / Penalty Adjustment : 2 is matched with subcategory total count 2</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:12:43 PM</td>
+					<td class='step-details'>Total count of category Improper Disposal of FecalWaste/septage : 23 is matched with subcategory total count 23</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:13:06 PM</td>
+					<td class='step-details'>Total count of category Garbage Nuisance while Transporting : 2 is matched with subcategory total count 2</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:13:29 PM</td>
+					<td class='step-details'>Total count of category Dumping of un-authorized debris : 15 is matched with subcategory total count 15</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:13:51 PM</td>
+					<td class='step-details'>Total count of category Dumping waste garbage in Nalas : 13 is matched with subcategory total count 13</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:14:14 PM</td>
+					<td class='step-details'>Total count of category Road Side Banners/Posters/Flags/Flexes : 16 is matched with subcategory total count 16</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:14:37 PM</td>
+					<td class='step-details'>Total count of category Garbage Burning : 17 is matched with subcategory total count 17</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:15:00 PM</td>
+					<td class='step-details'>Total count of category Bulk garbage dumps on roads : 28 is matched with subcategory total count 28</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:16:20 PM</td>
+					<td class='step-details'>Total count of category Children's Play Apparatus in Colony : 3 is matched with subcategory total count 3</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:16:42 PM</td>
+					<td class='step-details'>Total count of category Organizing Sports Camp : 1 is matched with subcategory total count 1</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:17:05 PM</td>
+					<td class='step-details'>Total count of category Providing Play Material at Playground : 1 is matched with subcategory total count 1</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:17:28 PM</td>
+					<td class='step-details'>Total count of category Maintenance of Play grounds/Sport Complex : 2 is matched with subcategory total count 2</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:19:24 PM</td>
+					<td class='step-details'>Total count of category Dustbin Not Cleared : 26 is matched with subcategory total count 26</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:19:47 PM</td>
+					<td class='step-details'>Total count of category Segregation of Waste is Not Done : 17 is matched with subcategory total count 17</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:20:09 PM</td>
+					<td class='step-details'>Total count of category Public Toilet(s) Blockage : 6 is matched with subcategory total count 6</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:20:33 PM</td>
+					<td class='step-details'>Total count of category Urination in Public/Open Defecation : 18 is matched with subcategory total count 18</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:20:56 PM</td>
+					<td class='step-details'>Total count of category Garbage Dump : 260 is matched with subcategory total count 260</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:21:19 PM</td>
+					<td class='step-details'>Total count of category Street Sweeping Not Done : 161 is matched with subcategory total count 161</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:21:41 PM</td>
+					<td class='step-details'>Total count of category Garbage Vehicle Not Arrived (SAT) : 117 is matched with subcategory total count 117</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:22:05 PM</td>
+					<td class='step-details'>Total count of category Public Toilet(s) Cleaning : 2 is matched with subcategory total count 2</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:23:50 PM</td>
+					<td class='step-details'>Total count of category Encroachment of Playground/Parks/Burial Ground/Community hall/GHMC Properties : 21 is matched with subcategory total count 21</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:24:14 PM</td>
+					<td class='step-details'>Total count of category Encroachment on Public Properties : 31 is matched with subcategory total count 31</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:24:37 PM</td>
+					<td class='step-details'>Total count of category Dilapidated Building Condition : 3 is matched with subcategory total count 3</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:25:00 PM</td>
+					<td class='step-details'>Total count of category Cell Tower in Neighborhood : 7 is matched with subcategory total count 7</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:25:24 PM</td>
+					<td class='step-details'>Total count of category Status of LRS/BRS Application : 2 is matched with subcategory total count 2</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:25:47 PM</td>
+					<td class='step-details'>Total count of category Encroachment of Roads : 102 is matched with subcategory total count 102</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:26:10 PM</td>
+					<td class='step-details'>Total count of category Footpath Blocked : 37 is matched with subcategory total count 37</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:26:33 PM</td>
+					<td class='step-details'>Total count of category Unauthorized Construction : 186 is matched with subcategory total count 186</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:26:58 PM</td>
+					<td class='step-details'>Total count of category Encroachment by Neighbor : 31 is matched with subcategory total count 31</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:27:22 PM</td>
+					<td class='step-details'>Total count of category Building/ Wall Collapse : 2 is matched with subcategory total count 2</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:27:45 PM</td>
+					<td class='step-details'>Total count of category Encroachment of Nala : 7 is matched with subcategory total count 7</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:29:11 PM</td>
+					<td class='step-details'>Total count of category Tree Fall : 9 is matched with subcategory total count 9</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:29:34 PM</td>
+					<td class='step-details'>Total count of category Fallen Tree Branch : 33 is matched with subcategory total count 33</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:29:57 PM</td>
+					<td class='step-details'>Total count of category Renovation of Park : 2 is matched with subcategory total count 2</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:30:20 PM</td>
+					<td class='step-details'>Total count of category Branch Pruning : 75 is matched with subcategory total count 75</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:30:43 PM</td>
+					<td class='step-details'>Total count of category Maintenance in Park : 7 is matched with subcategory total count 7</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:31:06 PM</td>
+					<td class='step-details'>Total count of category Plantation of trees : 2 is matched with subcategory total count 2</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:32:26 PM</td>
+					<td class='step-details'>Total count of category Delay in Registration In AASARA : 1 is matched with subcategory total count 1</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:32:50 PM</td>
+					<td class='step-details'>Total count of category Illegal Activities / Construction in Community Hall : 3 is matched with subcategory total count 3</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:34:42 PM</td>
+					<td class='step-details'>Total count of category Pig Menace : 4 is matched with subcategory total count 4</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:35:04 PM</td>
+					<td class='step-details'>Total count of category Animal Rescue : 5 is matched with subcategory total count 5</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:35:27 PM</td>
+					<td class='step-details'>Total count of category Dog Menace : 458 is matched with subcategory total count 458</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:35:50 PM</td>
+					<td class='step-details'>Total count of category Illegal Non-Vegetarian Trades : 13 is matched with subcategory total count 13</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:36:12 PM</td>
+					<td class='step-details'>Total count of category Dead Animal Lifting : 30 is matched with subcategory total count 30</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:36:36 PM</td>
+					<td class='step-details'>Total count of category Monkey Menace : 14 is matched with subcategory total count 14</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+</div>
+<!-- test view -->
+<!-- category view -->
+<!-- exception view -->
+<div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Tests
+					<div class='panel-lead'>1</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>100</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Mar 7, 2024 01:30:56 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Mar 7, 2024 02:36:37 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>1h 5m 41s+283ms</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 1,
+				failParent: 0,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 0,
+				
+				passChild: 100,
+				failChild: 0,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 0,
+				exceptionsChild: 0,
+				
+				passGrandChild: 0,
+				failGrandChild: 0,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 0,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 0,
+			};
+		</script>
+		
+			<script src='https://cdn.rawgit.com/anshooarora/extentreports-java/fca20fb7653aade98810546ab96a2a4360e3e712/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+ 		<script type='text/javascript'>
+ 		</script>
+	</body>
+	
+</html>
